@@ -1,0 +1,195 @@
+
+/* Add this to your landing.css file */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body {
+    animation: fadeIn 5s ease forwards;
+    opacity: 0; /* Ensure the page is initially hidden and fades in */
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: #000000; /* Dark background for the whole page */
+}
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Behind the wrapper */
+    pointer-events: none; /* Allows clicks to pass through to elements below */
+}
+
+#logo
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 180px;
+    height: 180px;
+}
+
+.wrapper {
+    color: #FFF;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1; /* Higher than the starfield */
+}
+
+header {
+    background-image: linear-gradient(#27272765, rgba(0, 0, 0, 0));
+    padding: 2rem;
+    color: #bdbdbdce;
+   
+}
+
+header h1 {
+    color: #FF4136; /* Red color for the title */
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #bdbdbdce;
+    font-size: 1.2rem;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+
+.option {
+    margin: 1rem;
+    flex-basis: calc(33.333% - 2rem); /* Three items per row with spacing */
+    height: 250px;
+    color: white;
+    border-radius: 8px;
+    background-blend-mode: darken;
+    background-size: 120% auto; /* Start with a slightly zoomed-in background */
+    background-position: center; /* Center the background initially */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-size 0.3s ease, background-position 0.5s ease;
+    /* Ensure that the 'before' pseudo-element doesn't interfere with our background animations */
+    overflow: hidden;
+    position: relative;
+}
+
+.option:hover {
+    transform: scale(1.05);
+}
+
+#solo-journey {
+    background: url('solo.png') center/cover no-repeat;
+}
+
+#journey-friends {
+    background: url('fren.png') center/cover no-repeat;
+}
+
+#journey-info {
+    background: url('jinfo.png') center/cover no-repeat;
+}
+
+.option h2 {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+}
+
+.option p {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 2rem;
+}
+
+footer {
+    background: #222;
+    color: #FFF;
+    padding: 1rem;
+    text-align: center;
+}
+/* Navbar Styles */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #27272765;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: rgba(214, 225, 230, 0.815);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Trebuchet MS';
+  }
+  
+  li a:hover {
+    color: #20eeee;
+  }
+  
+  .active {
+    color:#bb1818 ;
+    
+  }
+
+
+
+.option:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3); /* Dark overlay to enhance text readability */
+    transition: background 0.3s ease-in-out;
+    border-radius: 8px; /* Match the border radius of the option */
+}
+
+
+.option:hover:before {
+    background: rgba(0, 0, 0, 0); /* Remove overlay on hover to brighten image */
+}
+
+/* Add this to animate the background position on hover */
+.option:hover {
+    background-position: right center;
+}
+.option {
+    /* ... other styles ... */
+    background-size: 120%; /* Larger background size for panning effect */
+    background-position: center; /* Center the background by default */
+    transition: background-position 0.5s, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for background position */
+}
+
+
+
+
+@keyframes optionEntrance {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+

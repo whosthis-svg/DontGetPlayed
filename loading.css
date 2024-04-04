@@ -1,0 +1,125 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    overflow: hidden;
+}
+
+.space {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+}
+
+.ship {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -25px;
+    background: url('ship.png') no-repeat center; /* Add your ship SVG or another image */
+    background-size: 100%;
+    z-index: 10;
+}
+
+.ship-boost {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 20px;
+    background: radial-gradient(ellipse at center, #5bf3cd, transparent);
+    animation: boost 0.5s infinite alternate;
+}
+
+@keyframes boost {
+    0% { height: 10px; }
+    100% { height: 20px; }
+}
+
+.stars, .stars2, .stars3 {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: [GENERATE STARS];
+    animation: animateStars 50s linear infinite;
+}
+
+.stars2 { animation: animateStars 100s linear infinite; }
+.stars3 { animation: animateStars 150s linear infinite; }
+
+@keyframes animateStars {
+    from { transform: translateY(0px); }
+    to { transform: translateY(2000px); }
+}
+/* Add this inside your existing CSS */
+
+@keyframes boostAway {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-500px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+.boosting {
+    animation: boostAway 0.5s forwards; /* Make sure this duration matches the difference between timeOut and boostStart */
+    animation-timing-function: ease-in;
+}
+
+/* Adjust the ship-boost animation as needed */
+.ship-boost {
+    animation: none; /* Stop the previous boosting animation */
+}
+/* Previous styles remain unchanged */
+
+.asteroid {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    will-change: transform;
+    z-index: 2; /* Ensure it's above the background but below the text */
+}
+
+
+.message {
+    position: absolute;
+    width: 100%;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #FFF;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 2s ease-out;
+    font-family: 'Arial', sans-serif;
+}
+
+
+
+@keyframes rotateAsteroid {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Add this at the bottom of your loading.css file */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.body-fade-out {
+    animation: fadeOut 5s ease forwards;
+}
