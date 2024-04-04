@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="theme.css">
+        <meta charset="UTF-8">
+        <title>Financial Impact of Gambling</title>
+        <!-- Include SheetJS library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+        <script src="script.js"></script>
+    </head>
+    
+<body>
+    <link rel="stylesheet" href="theme.css">
+    <h2>Calculate the Financial Impact of Your Gambling</h2>
+    <form id="gamblingForm">
+        <label for="gambling_amount">Weekly Gambling Amount ($):</label>
+        <input type="number" id="gambling_amount" required><br><br>
+
+        <label for="weekly_salary">Weekly Salary ($):</label>
+        <input type="number" id="weekly_salary" required><br><br>
+
+        <label for="start_date">Start Date of Gambling (mm/yyyy):</label>
+        <input type="month" id="start_date" required><br><br>
+
+            <label>Select Hobbies:</label><br>
+            <input type="checkbox" name="hobby" value="Sports"> Sports<br>
+            <input type="checkbox" name="hobby" value="Music"> Music<br>
+            <input type="checkbox" name="hobby" value="Traveling"> Traveling<br>
+            <input type="checkbox" name="hobby" value="Gaming"> Gaming<br>
+            <input type="checkbox" name="hobby" value="Reading"> Reading<br>
+            <input type="checkbox" name="hobby" value="Adventure"> Adventure<br>
+            <input type="checkbox" name="hobby" value="Social Media"> Social Media<br>
+            <input type="checkbox" name="hobby" value="Movies"> Movies<br>
+            <input type="checkbox" name="hobby" value="Cooking"> Cooking<br>
+            <input type="checkbox" name="hobby" value="Photography"> Photography<br>
+            <input type="checkbox" name="hobby" value="Writing"> Writing<br>
+            <input type="checkbox" name="hobby" value="Drawing"> Drawing<br>
+            <input type="checkbox" name="hobby" value="Dancing"> Dancing<br>
+            <input type="checkbox" name="hobby" value="Painting"> Painting<br>
+            <input type="checkbox" name="hobby" value="Gardening"> Gardening<br>
+            <input type="checkbox" name="hobby" value="Pets"> Pets<br>
+            <input type="checkbox" name="hobby" value="Fashion"> Fashion<br>
+            <input type="checkbox" name="hobby" value="DIY"> DIY<br>
+            <input type="checkbox" name="hobby" value="Other"> Other<br>
+        
+
+
+        <label for="hobby_file">Hobby Data File (.xlsx):</label>
+        <input type="file" id="hobby_file" accept=".xlsx" required><br><br>
+        <label for="vehicleFileInput">Vehicle Data File (.csv):</label>
+        <input type="file" id="vehicleFileInput" accept=".csv"required>
+
+        <button type="button" onclick="calculateImpact()">Calculate</button>
+    </form>
+
+    <div id="results" style="margin-top: 20px;">
+        <!-- Results will be displayed here -->
+    </div>
+    <div style="max-width: 600px; margin: auto;">
+        <canvas id="financePieChart"></canvas>
+    </div>
+    
+    <!-- Line Graph Container -->
+    <div>
+        <canvas id="hobbyImpactLineGraph"></canvas>
+    </div>
+
+    <!-- Line Graph Container -->
+    <div>
+        <canvas id="investmentForecastGraph"></canvas>  
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>
+
